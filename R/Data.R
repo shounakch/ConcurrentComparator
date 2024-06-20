@@ -102,6 +102,8 @@ getDbConcurrentComparatorData <- function(connectionDetails,
                                   washoutTime = timeAtRiskEnd + 1,
                                   intermediateFileNameStem = NULL) {
 
+    conn = connectionDetails #alias to fix bugs
+
     errorMessages <- checkmate::makeAssertCollection()
     checkmate::assertClass(connectionDetails, "ConnectionDetails", add = errorMessages)
     checkmate::assertCharacter(cdmDatabaseSchema, len = 1, add = errorMessages)
